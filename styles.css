@@ -1,0 +1,1093 @@
+:root {
+  /* PS1 / PocketStation Matte LCD & Putty-Gray Hardware Palette (Zero Glare) */
+  --lcd-bezel: #b7bbb2;
+  --lcd-bezel-hi: #d8dbd3;
+  --lcd-bezel-lo: #757a70;
+  --lcd-bezel-deep: #4c5148;
+
+  --lcd-screen-top: #d1d8c7;
+  --lcd-screen-bot: #c3cbb8;
+  --lcd-surface: #c8d0be;
+  --lcd-surface-alt: #bac3af;
+  --lcd-surface-hover: #b2bca6;
+
+  --lcd-ink: #1e2720;
+  --lcd-ink-soft: #435145;
+  --lcd-ink-inv: #e3ead9;
+  --lcd-active-bg: #2a372e;
+  --lcd-active-border: #17201a;
+  --lcd-border-hi: #e2e8d9;
+  --lcd-border-mid: #8e9882;
+  --lcd-border-lo: #5b6552;
+
+  /* Muted Matte PS1 Button Accents (Non-glaring) */
+  --ps1-triangle: #3f8f72;
+  --ps1-circle: #b5535b;
+  --ps1-cross: #4a72a8;
+  --ps1-square: #8c5da3;
+
+  --lcd-accent: #3d5a47;
+  --lcd-stage-bg: #32373d;
+  --font-mono: 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+  --font-sans: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background: #878c83;
+  color: var(--lcd-ink);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.4;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Soft matte retro console casing backdrop */
+body {
+  background-color: #8b9087;
+  background-image:
+    radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.08), transparent 52%),
+    radial-gradient(circle at 85% 85%, rgba(0, 0, 0, 0.08), transparent 50%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.015) 0px,
+      rgba(0, 0, 0, 0.015) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+}
+
+/* Subtle optional global LCD dot-matrix overlay */
+body.lcd-matrix-on::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  background-image:
+    linear-gradient(to right, rgba(20, 30, 22, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 30, 22, 0.055) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+/* Shell */
+.ps1-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+  max-width: 1620px;
+  margin: 0 auto;
+}
+
+/* Top Hardware Header (PSone Warm Putty Gray + Segmented LCD Strip) */
+.ps1-topbar {
+  background: linear-gradient(180deg, #c9ccc4 0%, #b3b7ae 100%);
+  border-top: 2px solid var(--lcd-bezel-hi);
+  border-left: 2px solid var(--lcd-bezel-hi);
+  border-right: 2px solid var(--lcd-bezel-lo);
+  border-bottom: 3px solid var(--lcd-bezel-deep);
+  box-shadow: 0 3px 0 rgba(32, 38, 34, 0.25);
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: #202521;
+}
+
+.brand-cluster {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ps1-logo-mark {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #2b332d;
+  padding: 5px 9px;
+  border-top: 2px solid #181d19;
+  border-left: 2px solid #181d19;
+  border-right: 2px solid #d7dbd2;
+  border-bottom: 2px solid #d7dbd2;
+}
+
+.ps1-glyphs {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.g-tri { color: var(--ps1-triangle); }
+.g-cir { color: var(--ps1-circle); }
+.g-cro { color: var(--ps1-cross); }
+.g-squ { color: var(--ps1-square); }
+
+.brand-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title strong {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: #1f2621;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.brand-title span {
+  font-size: 11px;
+  color: #3f4840;
+  font-weight: 600;
+}
+
+/* Segmented Reflective LCD Telemetry Readout */
+.vram-telemetry {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #c2cbb5;
+  color: #1c271f;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-top: 2px solid #6b7460;
+  border-left: 2px solid #6b7460;
+  border-right: 2px solid #dfe5d5;
+  border-bottom: 2px solid #dfe5d5;
+  box-shadow: inset 1px 1px 3px rgba(28, 39, 31, 0.14);
+  letter-spacing: 0.03em;
+}
+
+.vram-led {
+  width: 8px;
+  height: 8px;
+  background: #2f5e42;
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4);
+  display: inline-block;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+/* Matte Tactile Hardware Buttons */
+.ps1-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  color: #202722;
+  background: linear-gradient(180deg, #d7dbd2 0%, #b5bab0 100%);
+  border-top: 2px solid #ebeee7;
+  border-left: 2px solid #ebeee7;
+  border-right: 2px solid #666c62;
+  border-bottom: 2px solid #666c62;
+  padding: 5px 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.05s ease, filter 0.1s ease;
+}
+
+.ps1-btn:hover {
+  filter: brightness(0.97);
+}
+
+.ps1-btn:active {
+  transform: translateY(1px);
+  border-top: 2px solid #666c62;
+  border-left: 2px solid #666c62;
+  border-right: 2px solid #ebeee7;
+  border-bottom: 2px solid #ebeee7;
+}
+
+.ps1-btn.dark {
+  background: linear-gradient(180deg, #c3cbb8 0%, #aeb8a2 100%);
+  color: #1c261f;
+  border-top: 2px solid #dfe6d5;
+  border-left: 2px solid #dfe6d5;
+  border-right: 2px solid #616b57;
+  border-bottom: 2px solid #616b57;
+  text-shadow: none;
+}
+
+.ps1-btn.primary {
+  background: linear-gradient(180deg, #374a3e 0%, #26352c 100%);
+  color: #e4ecda;
+  border-top: 2px solid #65806e;
+  border-left: 2px solid #65806e;
+  border-right: 2px solid #131b16;
+  border-bottom: 2px solid #131b16;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.ps1-btn.is-on {
+  background: linear-gradient(180deg, #3a4c40 0%, #2a392f 100%);
+  color: #e1ebd5;
+  border-top: 2px solid #6f8977;
+  border-left: 2px solid #6f8977;
+  border-right: 2px solid #161f19;
+  border-bottom: 2px solid #161f19;
+}
+
+.btn-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  background: #28312a;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Main 3-Column LCD Workbench */
+.workbench {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 300px minmax(420px, 1fr) 310px;
+  gap: 10px;
+  min-height: 0;
+}
+
+@media (min-width: 1181px) {
+  .ps1-shell {
+    height: 100vh;
+    overflow: hidden;
+  }
+  .workbench,
+  .ps1-window,
+  .crt-window {
+    height: 100%;
+    overflow: hidden;
+  }
+  .crt-screen {
+    min-height: 0;
+  }
+}
+
+/* Reflective Matte LCD Panel Windows */
+.ps1-window {
+  background: linear-gradient(180deg, var(--lcd-screen-top) 0%, var(--lcd-screen-bot) 100%);
+  background-image:
+    linear-gradient(180deg, rgba(209, 216, 199, 0.96) 0%, rgba(195, 203, 184, 0.96) 100%),
+    linear-gradient(to right, rgba(30, 42, 32, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 42, 32, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 4px 4px, 4px 4px;
+  border-top: 3px solid #6e7764;
+  border-left: 3px solid #6e7764;
+  border-right: 3px solid #dfe4d8;
+  border-bottom: 3px solid #dfe4d8;
+  box-shadow:
+    inset 0 0 0 1px rgba(30, 40, 32, 0.2),
+    inset 0 2px 6px rgba(30, 42, 32, 0.12),
+    0 3px 0 rgba(36, 42, 38, 0.22);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.win-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: #334036;
+  border-bottom: 2px solid #596658;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #dfe7d3;
+}
+
+.win-header-sub {
+  color: #b7c99f;
+  font-size: 10px;
+}
+
+.win-body {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Memory Card Slots (LCD Ink Tiles) */
+.memcard-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  border-bottom: 1px solid #8f9984;
+  padding-bottom: 4px;
+}
+
+.memcard-mini-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mem-mini-btn {
+  appearance: none;
+  background: #bac3ae;
+  color: #1e2821;
+  border: 1px solid #6e7864;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+.mem-mini-btn:hover:not(:disabled) {
+  background: #aeb8a1;
+}
+
+.mem-mini-btn:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
+
+.memcard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  max-height: 170px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.mem-slot {
+  position: relative;
+  background: #bcc5b0;
+  border-top: 2px solid #8a947e;
+  border-left: 2px solid #8a947e;
+  border-right: 2px solid #e1e8d8;
+  border-bottom: 2px solid #e1e8d8;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  text-align: center;
+  color: var(--lcd-ink-soft);
+}
+
+.mem-slot:hover {
+  background: #b1bba4;
+  color: var(--lcd-ink);
+}
+
+.mem-slot.active {
+  background: var(--lcd-active-bg);
+  border: 2px solid #161f19;
+  color: var(--lcd-ink-inv);
+  box-shadow: 2px 2px 0 rgba(30, 40, 32, 0.18);
+}
+
+.mem-slot-del {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(30, 40, 32, 0.35);
+  background: rgba(212, 219, 203, 0.9);
+  color: #263129;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0.78;
+  padding: 0;
+}
+
+.mem-slot-del:hover {
+  opacity: 1;
+  background: #b5535b;
+  color: #fff;
+  border-color: #7d2e35;
+}
+
+.mem-slot img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  background: repeating-conic-gradient(#d3dac8 0% 25%, #c5cdba 0% 50%) 50% / 8px 8px;
+  border: 1px solid rgba(30, 40, 32, 0.25);
+}
+
+.mem-slot-name {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.mem-slot.add-slot {
+  justify-content: center;
+  min-height: 70px;
+  border: 1px dashed #606d59;
+  background: rgba(182, 192, 168, 0.55);
+  color: #273329;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.mem-slot.add-slot:hover {
+  background: rgba(169, 180, 154, 0.75);
+}
+
+.batch-bar {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.empty-stage {
+  background: linear-gradient(180deg, #cfd6c5 0%, #bec6b3 100%);
+  border-top: 2px solid #eaefe2;
+  border-left: 2px solid #eaefe2;
+  border-right: 2px solid #596352;
+  border-bottom: 2px solid #596352;
+  padding: 20px 24px;
+  text-align: center;
+  max-width: 420px;
+  color: #1e2720;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.empty-stage-title {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.empty-stage-desc {
+  font-size: 12px;
+  color: #3d4b3f;
+}
+
+.empty-stage-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* Style Preset Buttons (Inverted LCD Menu Selection) */
+.preset-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.preset-btn {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  background: #c5ceb9;
+  border: 1px solid #7d8872;
+  box-shadow: 2px 2px 0 rgba(30, 42, 33, 0.14);
+  padding: 7px 9px 7px 22px;
+  color: var(--lcd-ink);
+  cursor: pointer;
+  transition: background 0.08s ease;
+}
+
+.preset-btn::before {
+  content: '▶';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  font-size: 10px;
+  color: var(--lcd-ink);
+  opacity: 0;
+  transform: translateX(-2px);
+  transition: opacity 0.08s ease, transform 0.08s ease;
+}
+
+.preset-btn:hover {
+  background: var(--lcd-surface-hover);
+}
+
+.preset-btn:hover::before {
+  opacity: 0.6;
+  transform: translateX(0);
+}
+
+.preset-btn.active {
+  background: var(--lcd-active-bg);
+  border: 1px solid #161f18;
+  box-shadow: inset 0 0 0 1px rgba(227, 234, 217, 0.18), 2px 2px 0 rgba(20, 28, 22, 0.25);
+  color: var(--lcd-ink-inv);
+}
+
+.preset-btn.active::before {
+  color: #d6e4b8;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.preset-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.preset-title {
+  font-weight: 700;
+  font-size: 13px;
+  color: inherit;
+}
+
+.preset-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 1px 5px;
+  background: rgba(30, 42, 33, 0.12);
+  border: 1px solid rgba(30, 42, 33, 0.25);
+  color: #2b382d;
+}
+
+.preset-btn.active .preset-tag {
+  background: rgba(227, 234, 217, 0.12);
+  border-color: rgba(227, 234, 217, 0.28);
+  color: #d3dfc2;
+}
+
+.preset-desc {
+  font-size: 11px;
+  color: #3d4b3f;
+  line-height: 1.35;
+}
+
+.preset-btn.active .preset-desc {
+  color: #c2ceba;
+}
+
+/* Center LCD Monitor Viewport Stage */
+.crt-window {
+  background: linear-gradient(180deg, #b8bcb3 0%, #9fa49b 100%);
+  border-top: 2px solid #dcdfd7;
+  border-left: 2px solid #dcdfd7;
+  border-right: 3px solid #63685e;
+  border-bottom: 3px solid #63685e;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+}
+
+.viewport-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.seg-group {
+  display: inline-flex;
+  background: #b9c2ad;
+  padding: 2px;
+  border-top: 2px solid #6b7460;
+  border-left: 2px solid #6b7460;
+  border-right: 1px solid #dfe5d5;
+  border-bottom: 1px solid #dfe5d5;
+  gap: 2px;
+}
+
+.seg-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #2d3a30;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.seg-btn:hover {
+  color: #161f18;
+  background: rgba(42, 55, 46, 0.14);
+}
+
+.seg-btn.active {
+  background: #2b382f;
+  color: #e2ebd6;
+}
+
+/* Inner Matte LCD Display Screen */
+.crt-screen {
+  position: relative;
+  flex: 1;
+  min-height: 400px;
+  background: var(--lcd-stage-bg);
+  border-top: 4px solid #595e55;
+  border-left: 4px solid #595e55;
+  border-right: 4px solid #d7dbd2;
+  border-bottom: 4px solid #d7dbd2;
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crt-screen.drag-over {
+  outline: 3px dashed #b9cfa2;
+  outline-offset: -8px;
+}
+
+.stage-backdrop {
+  position: absolute;
+  inset: 0;
+  transition: background 0.15s ease;
+}
+
+/* Soft, neutral, glare-free matte stage backdrops */
+.stage-backdrop.bg-checker {
+  background-color: #3c4248;
+  background-image:
+    linear-gradient(45deg, #474e56 25%, transparent 25%),
+    linear-gradient(-45deg, #474e56 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #474e56 75%),
+    linear-gradient(-45deg, transparent 75%, #474e56 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+}
+
+.stage-backdrop.bg-ps1 {
+  background: linear-gradient(180deg, #44535c 0%, #303c44 100%);
+}
+
+.stage-backdrop.bg-white {
+  background: #eaede6;
+}
+
+.stage-backdrop.bg-dark {
+  background: #24282c;
+}
+
+.stage-backdrop.bg-rpgslot {
+  background:
+    radial-gradient(circle at center, rgba(185, 200, 170, 0.12), transparent 65%),
+    #2e3832;
+}
+
+/* Split / Single / Wipe views */
+.stage-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+}
+
+.split-view {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.pane-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid rgba(215, 224, 205, 0.22);
+  background: rgba(20, 26, 23, 0.12);
+  padding: 28px 12px 12px;
+  overflow: hidden;
+}
+
+.pane-label {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  background: rgba(33, 42, 36, 0.88);
+  border: 1px solid rgba(196, 208, 182, 0.45);
+  color: #dde5d2;
+  letter-spacing: 0.04em;
+  z-index: 4;
+}
+
+.pane-label.gold {
+  background: #c5ceb9;
+  color: #1c261f;
+  border-color: #4b5748;
+}
+
+.canvas-frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.canvas-frame.rpg-item-box {
+  padding: 18px;
+  background: linear-gradient(180deg, #cfd6c5 0%, #bec6b3 100%);
+  border-top: 3px solid #eaefe2;
+  border-left: 3px solid #eaefe2;
+  border-right: 3px solid #596352;
+  border-bottom: 3px solid #596352;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.32);
+}
+
+.pixel-canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  display: block;
+}
+
+.source-img-preview {
+  display: block;
+  object-fit: contain;
+}
+
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.output-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Wipe Comparison View */
+.wipe-view {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.wipe-layer-orig {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.wipe-handle {
+  position: absolute;
+  top: -8px;
+  bottom: -8px;
+  width: 2px;
+  background: #d3dec4;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  cursor: ew-resize;
+  z-index: 10;
+}
+
+.wipe-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #2b382f;
+  color: #e2ebd6;
+  border: 2px solid #cbd5bd;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 6px;
+  white-space: nowrap;
+}
+
+/* Subtle LCD Pixel Matrix Overlay on Viewport */
+.crt-screen.lcd-fx::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.11) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.11) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+/* Bottom Reflective LCD CLUT Strip */
+.clut-bar {
+  background: #c2cbb6;
+  border-top: 2px solid #6c7662;
+  border-left: 2px solid #6c7662;
+  border-right: 2px solid #dfe5d5;
+  border-bottom: 2px solid #dfe5d5;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.clut-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #1e2821;
+  white-space: nowrap;
+}
+
+.clut-swatches {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3px;
+  flex: 1;
+}
+
+.clut-chip {
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(28, 38, 30, 0.45);
+}
+
+/* Right Panel Controls (Matte LCD Cards) */
+.ctrl-section {
+  background: rgba(212, 219, 203, 0.55);
+  border: 1px solid #8a947e;
+  padding: 7px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ctrl-section-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #202b23;
+  border-bottom: 1px solid #8f9984;
+  padding-bottom: 3px;
+  letter-spacing: 0.04em;
+}
+
+.ctrl-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ctrl-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #222d25;
+}
+
+.ctrl-val {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #1a241d;
+  background: #b3bca7;
+  padding: 1px 5px;
+  border: 1px solid #76806b;
+}
+
+/* Matte LCD Range Slider */
+input[type='range'].ps1-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #9fa993;
+  border-top: 1px solid #5f6856;
+  border-left: 1px solid #5f6856;
+  border-right: 1px solid #dce3d2;
+  border-bottom: 1px solid #dce3d2;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type='range'].ps1-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 16px;
+  background: linear-gradient(180deg, #dde3d5, #a9b29e);
+  border-top: 2px solid #f0f4ea;
+  border-left: 2px solid #f0f4ea;
+  border-right: 2px solid #495243;
+  border-bottom: 2px solid #495243;
+  cursor: pointer;
+}
+
+select.ps1-select {
+  width: 100%;
+  background: #d8dfd0;
+  color: #1c261f;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 7px;
+  border-top: 2px solid #6b7460;
+  border-left: 2px solid #6b7460;
+  border-right: 2px solid #edf1e7;
+  border-bottom: 2px solid #edf1e7;
+  outline: none;
+  cursor: pointer;
+}
+
+.toggle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.check-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #202a23;
+  background: #bec7b2;
+  border: 1px solid #7b8570;
+  padding: 4px 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.check-pill input {
+  accent-color: #2a3a30;
+  cursor: pointer;
+}
+
+.export-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
+.export-main-btn {
+  justify-content: center;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.hint-box {
+  font-size: 11px;
+  color: #2c382f;
+  background: rgba(182, 192, 170, 0.55);
+  border-left: 3px solid #46574b;
+  padding: 5px 8px;
+  line-height: 1.45;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Custom Matte LCD Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #b5bea9;
+}
+::-webkit-scrollbar-thumb {
+  background: #77826c;
+  border: 1px solid #cfd6c5;
+}
+
+/* Responsive Breakpoint */
+@media (max-width: 1180px) {
+  .workbench {
+    grid-template-columns: 270px 1fr;
+  }
+  .right-panel {
+    grid-column: 1 / -1;
+  }
+  .right-panel .win-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+}
+
+@media (max-width: 780px) {
+  .workbench {
+    grid-template-columns: 1fr;
+  }
+  .split-view {
+    grid-template-columns: 1fr;
+  }
+  .crt-screen {
+    min-height: 360px;
+  }
+}
