@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 280" width="960" height="280" role="img" aria-label="PLAY-PIXEL STATION - PS1 Matte LCD Pixel Art Studio">
+  <defs>
+    <!-- Putty-gray console outer shell -->
+    <linearGradient id="chassisGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c9ccc4" />
+      <stop offset="100%" stop-color="#aeb2a8" />
+    </linearGradient>
+    <!-- Reflective matte sage-gray LCD screen -->
+    <linearGradient id="lcdGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d2d9c8" />
+      <stop offset="100%" stop-color="#bfc7b3" />
+    </linearGradient>
+    <!-- Subtle 4x4 LCD dot-matrix texture -->
+    <pattern id="lcdGrid" width="4" height="4" patternUnits="userSpaceOnUse">
+      <path d="M 4 0 L 0 0 0 4" fill="none" stroke="#1e2820" stroke-opacity="0.06" stroke-width="1" />
+    </pattern>
+    <!-- Checkerboard inside mini pixel preview -->
+    <pattern id="miniChecker" width="12" height="12" patternUnits="userSpaceOnUse">
+      <rect width="12" height="12" fill="#3c4248" />
+      <rect width="6" height="6" fill="#474e56" />
+      <rect x="6" y="6" width="6" height="6" fill="#474e56" />
+    </pattern>
+  </defs>
+
+  <!-- Outer PSone Putty-Gray Frame -->
+  <rect x="0" y="0" width="960" height="280" fill="url(#chassisGrad)" />
+  <!-- Bevel Highlights & Shadows -->
+  <polyline points="0,278 0,0 958,0" fill="none" stroke="#e4e7df" stroke-width="4" />
+  <polyline points="958,2 958,278 2,278" fill="none" stroke="#62675e" stroke-width="4" />
+
+  <!-- Top Console Hardware Strip -->
+  <rect x="22" y="16" width="126" height="26" fill="#2b332d" />
+  <polyline points="22,42 22,16 148,16" fill="none" stroke="#171c18" stroke-width="2" />
+  <polyline points="148,16 148,42 22,42" fill="none" stroke="#d9ddd4" stroke-width="2" />
+  <!-- Muted PS1 Triangle Circle Cross Square Glyphs -->
+  <polygon points="40,23 33,35 47,35" fill="none" stroke="#3f8f72" stroke-width="2.2" />
+  <circle cx="67" cy="29" r="6" fill="none" stroke="#b5535b" stroke-width="2.2" />
+  <line x1="88" y1="23" x2="99" y2="35" stroke="#4a72a8" stroke-width="2.4" />
+  <line x1="99" y1="23" x2="88" y2="35" stroke="#4a72a8" stroke-width="2.4" />
+  <rect x="116" y="23" width="11" height="11" fill="none" stroke="#8c5da3" stroke-width="2.2" />
+
+  <text x="164" y="34" font-family="'JetBrains Mono', Consolas, monospace" font-size="13" font-weight="700" fill="#232a24" letter-spacing="1.2">
+    SCPH-1000 // MATTE LCD DISPLAY EDITION
+  </text>
+
+  <!-- Top Right Hardware Status Pill -->
+  <rect x="716" y="17" width="222" height="24" fill="#c2cbb5" stroke="#6e7764" stroke-width="2" />
+  <rect x="726" y="25" width="8" height="8" fill="#2f5e42" />
+  <text x="742" y="33" font-family="Consolas, 'Courier New', monospace" font-size="11" font-weight="700" fill="#1e2720">
+    PURE CLIENT-SIDE · PNG/ZIP
+  </text>
+
+  <!-- Main Recessed LCD Screen Bezel -->
+  <rect x="22" y="54" width="916" height="204" fill="url(#lcdGrad)" />
+  <rect x="22" y="54" width="916" height="204" fill="url(#lcdGrid)" />
+  <!-- Recessed LCD Bevel -->
+  <polyline points="22,258 22,54 938,54" fill="none" stroke="#5d6654" stroke-width="4" />
+  <polyline points="938,54 938,258 22,258" fill="none" stroke="#e4e9dc" stroke-width="4" />
+
+  <!-- LCD Header Bar -->
+  <rect x="25" y="57" width="910" height="28" fill="#334036" />
+  <text x="40" y="75" font-family="'JetBrains Mono', Consolas, monospace" font-size="12" font-weight="700" fill="#dfe7d3" letter-spacing="1">
+    MEMCARD SLOT 1  ·  7 RETRO STYLE PRESETS  ·  BATCH FOLDER EXPORT
+  </text>
+  <text x="920" y="75" text-anchor="end" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="700" fill="#b7c99f">
+    VRAM SYNC OK
+  </text>
+
+  <!-- Left Content inside LCD -->
+  <!-- Inverted LCD Badge -->
+  <rect x="44" y="102" width="144" height="22" fill="#2a372e" />
+  <text x="54" y="117" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="700" fill="#e3ead9" letter-spacing="0.8">
+    ▶ PIXEL STUDIO
+  </text>
+
+  <!-- Main Title with subtle LCD shadow -->
+  <text x="46" y="160" font-family="'JetBrains Mono', Consolas, monospace" font-size="36" font-weight="700" fill="#1e2720" fill-opacity="0.16" letter-spacing="1.5">
+    PLAY-PIXEL STATION
+  </text>
+  <text x="44" y="158" font-family="'JetBrains Mono', Consolas, monospace" font-size="36" font-weight="700" fill="#1b241d" letter-spacing="1.5">
+    PLAY-PIXEL STATION
+  </text>
+
+  <!-- Chinese Subtitle -->
+  <text x="44" y="188" font-family="'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700" fill="#2b382d">
+    真实商品写真 → 复古像素风素材转换工作台
+  </text>
+
+  <!-- Feature Tags Row (LCD Ink Pills) -->
+  <rect x="44" y="206" width="108" height="26" fill="#bac3ae" stroke="#6f7965" stroke-width="1.5" />
+  <text x="98" y="223" text-anchor="middle" font-family="'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#1e2720">
+    7 种复古风格
+  </text>
+
+  <rect x="162" y="206" width="116" height="26" fill="#bac3ae" stroke="#6f7965" stroke-width="1.5" />
+  <text x="220" y="223" text-anchor="middle" font-family="'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#1e2720">
+    RPG 像素描边
+  </text>
+
+  <rect x="288" y="206" width="128" height="26" fill="#bac3ae" stroke="#6f7965" stroke-width="1.5" />
+  <text x="352" y="223" text-anchor="middle" font-family="'Noto Sans SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="700" fill="#1e2720">
+    整文件夹批量出图
+  </text>
+
+  <rect x="426" y="206" width="132" height="26" fill="#2a372e" stroke="#17201a" stroke-width="1.5" />
+  <text x="492" y="223" text-anchor="middle" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="700" fill="#e3ead9">
+    ● GITHUB PAGES
+  </text>
+
+  <!-- Right Side: Mini RPG Item Preview Box + Pixel Golden Soap Sprite + CLUT Swatches -->
+  <rect x="654" y="98" width="266" height="146" fill="#c5ceb9" stroke="#7d8872" stroke-width="2" />
+  <text x="668" y="116" font-family="'JetBrains Mono', Consolas, monospace" font-size="10" font-weight="700" fill="#2b382d">
+    ITEM PREVIEW // 48×48 PX
+  </text>
+
+  <!-- Mini Checkerboard Viewport -->
+  <rect x="668" y="124" width="104" height="104" fill="url(#miniChecker)" stroke="#4d5648" stroke-width="2" />
+
+  <!-- Crisp Pixel-Art Golden Soap Bar Sprite inside Checkerboard (8px pixel grid) -->
+  <g transform="translate(676, 136)">
+    <!-- 1px Dark Outline -->
+    <rect x="24" y="8" width="40" height="8" fill="#2c1d06" />
+    <rect x="16" y="16" width="8" height="8" fill="#2c1d06" />
+    <rect x="64" y="16" width="8" height="8" fill="#2c1d06" />
+    <rect x="8" y="24" width="8" height="16" fill="#2c1d06" />
+    <rect x="72" y="24" width="8" height="24" fill="#2c1d06" />
+    <rect x="0" y="40" width="8" height="24" fill="#2c1d06" />
+    <rect x="64" y="48" width="8" height="8" fill="#2c1d06" />
+    <rect x="8" y="64" width="16" height="8" fill="#2c1d06" />
+    <rect x="56" y="56" width="8" height="8" fill="#2c1d06" />
+    <rect x="24" y="72" width="32" height="8" fill="#2c1d06" />
+    <rect x="48" y="64" width="8" height="8" fill="#2c1d06" />
+
+    <!-- Golden Mid & Highlight Pixels -->
+    <rect x="24" y="16" width="40" height="8" fill="#f7c815" />
+    <rect x="16" y="24" width="56" height="8" fill="#ffe24a" />
+    <rect x="16" y="32" width="56" height="8" fill="#f7c815" />
+    <rect x="8" y="40" width="64" height="8" fill="#ebb005" />
+    <rect x="8" y="48" width="56" height="8" fill="#d99400" />
+    <rect x="8" y="56" width="48" height="8" fill="#be7a00" />
+    <rect x="24" y="64" width="24" height="8" fill="#9c5f00" />
+
+    <!-- Glossy Top Highlights -->
+    <rect x="24" y="24" width="24" height="8" fill="#fff4a3" />
+    <rect x="16" y="32" width="16" height="8" fill="#ffe869" />
+    <rect x="48" y="24" width="8" height="8" fill="#ffd92e" />
+    <rect x="40" y="40" width="24" height="8" fill="#f7c815" />
+  </g>
+
+  <!-- Right Side Spec + CLUT Strip -->
+  <text x="786" y="138" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="700" fill="#1e2720">
+    03 · RPG 道具描边
+  </text>
+  <text x="786" y="155" font-family="'JetBrains Mono', Consolas, monospace" font-size="10" fill="#3d4b3f">
+    GBA ITEM ICON
+  </text>
+  <text x="786" y="172" font-family="'JetBrains Mono', Consolas, monospace" font-size="10" fill="#3d4b3f">
+    CLUT: 16 COLORS
+  </text>
+  <text x="786" y="189" font-family="'JetBrains Mono', Consolas, monospace" font-size="10" fill="#3d4b3f">
+    OUTLINE: 1PX DARK
+  </text>
+
+  <!-- Mini VRAM CLUT Palette Chips -->
+  <text x="786" y="209" font-family="'JetBrains Mono', Consolas, monospace" font-size="9" font-weight="700" fill="#2b382d">
+    VRAM CLUT
+  </text>
+  <rect x="786" y="214" width="14" height="14" fill="#2c1d06" stroke="#4d5648" stroke-width="1" />
+  <rect x="803" y="214" width="14" height="14" fill="#9c5f00" stroke="#4d5648" stroke-width="1" />
+  <rect x="820" y="214" width="14" height="14" fill="#d99400" stroke="#4d5648" stroke-width="1" />
+  <rect x="837" y="214" width="14" height="14" fill="#f7c815" stroke="#4d5648" stroke-width="1" />
+  <rect x="854" y="214" width="14" height="14" fill="#ffe24a" stroke="#4d5648" stroke-width="1" />
+  <rect x="871" y="214" width="14" height="14" fill="#fff4a3" stroke="#4d5648" stroke-width="1" />
+  <rect x="888" y="214" width="14" height="14" fill="#3f8f72" stroke="#4d5648" stroke-width="1" />
+</svg>
